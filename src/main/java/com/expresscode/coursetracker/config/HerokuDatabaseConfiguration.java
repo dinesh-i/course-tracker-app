@@ -1,6 +1,5 @@
-package HerokuDatabaseConfiguration;
+package com.expresscode.coursetracker.config;
 
-import com.expresscode.coursetracker.config.Constants;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
