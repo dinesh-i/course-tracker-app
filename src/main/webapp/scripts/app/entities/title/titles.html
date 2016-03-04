@@ -1,0 +1,70 @@
+<div>
+    <h2>Titles</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="title.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                       >Create new Title
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>TitleName</span></th>
+                    <th><span>IsCompleted</span></th>
+                    <th><span>book</span></th>
+                    <th><span>video</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="title in titles track by title.id">
+                    <td><a ui-sref="title.detail({id:title.id})">{{title.id}}</a></td>
+                    <td>{{title.titleName}}</td>
+                    <td>{{title.isCompleted}}</td>
+                    <td>
+                        <span ng-repeat="book in title.books">
+                            <a class="form-control-static" ui-sref="book.detail({id: {{book.id}}})">{{book.id}}</a>{{$last ? '' : ', '}}
+                        <span>
+                    </td>
+                    <td>
+                        <span ng-repeat="video in title.videos">
+                            <a class="form-control-static" ui-sref="video.detail({id: {{video.id}}})">{{video.id}}</a>{{$last ? '' : ', '}}
+                        <span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="title.detail({id:title.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="title.edit({id:title.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="title.delete({id:title.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

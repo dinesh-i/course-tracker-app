@@ -1,0 +1,26 @@
+
+
+entity Title{
+  titleName String required,
+  isCompleted Boolean
+}
+
+entity Book{
+   bookName String required,
+   author String,
+   isCompleted Boolean
+}
+
+entity Video{
+   videoName String required,
+   author String,
+   isCompleted Boolean
+}
+
+relationship ManyToMany {
+  Title{book} to Book{title}
+}
+
+relationship ManyToMany {
+  Title{video} to Video{title}
+}

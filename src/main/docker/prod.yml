@@ -1,0 +1,10 @@
+coursetracker-postgresql:
+  container_name: coursetracker-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/CourseTracker/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=CourseTracker
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"

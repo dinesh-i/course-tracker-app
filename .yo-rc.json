@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "CourseTracker",
+    "packageName": "com.expresscode.coursetracker",
+    "packageFolder": "com/expresscode/coursetracker",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "gulp",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "64c3d13104cf592c2dff963552b7735dd541d787",
+    "testFrameworks": [
+      "protractor"
+    ]
+  }
+}
