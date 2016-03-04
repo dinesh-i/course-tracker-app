@@ -30,6 +30,7 @@ var gulp = require('gulp'),
     handleErrors = require('./gulp/handleErrors'),
     util = require('./gulp/utils');
 
+
 var config = {
     app: 'src/main/webapp/',
     dist: 'src/main/webapp/dist/',
