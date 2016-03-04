@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "book")
-public class Book extends AbstractAuditingEntity implements Serializable{
+public class Book implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
