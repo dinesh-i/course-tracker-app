@@ -14,28 +14,41 @@ import javax.sql.DataSource;
 @Profile(Constants.SPRING_PROFILE_HEROKU)
 public class HerokuDatabaseConfiguration {
 
-    private final Logger log = LoggerFactory.getLogger(HerokuDatabaseConfiguration.class);
+	private final Logger log = LoggerFactory.getLogger(HerokuDatabaseConfiguration.class);
 
-    @Bean
-    public DataSource dataSource(DataSourceProperties dataSourceProperties, JHipsterProperties jHipsterProperties) {
-        log.debug("Configuring Heroku Datasource");
+	@Bean
+	public DataSource dataSource(DataSourceProperties dataSourceProperties, JHipsterProperties jHipsterProperties) {
+		log.debug("Configuring Heroku Datasource");
 
-        String herokuUrl = System.getenv("JDBC_DATABASE_URL");
-        if (herokuUrl != null) {
-	    HikariConfig config = new HikariConfig();
+		// String herokuUrl = System.getenv("JDBC_DATABASE_URL");
+		// if (herokuUrl != null) {
+		// HikariConfig config = new HikariConfig();
+		//
+		// //MySQL optimizations, see
+		// https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
+		// if
+		// ("com.mysql.jdbc.jdbc2.optional.MysqlDataSource".equals(dataSourceProperties.getDriverClassName()))
+		// {
+		// config.addDataSourceProperty("cachePrepStmts",
+		// jHipsterProperties.getDatasource().isCachePrepStmts());
+		// config.addDataSourceProperty("prepStmtCacheSize",
+		// jHipsterProperties.getDatasource().getPrepStmtCacheSize());
+		// config.addDataSourceProperty("prepStmtCacheSqlLimit",
+		// jHipsterProperties.getDatasource().getPrepStmtCacheSqlLimit());
+		// }
+		//
+		// config.setDataSourceClassName(dataSourceProperties.getDriverClassName());
+		// config.addDataSourceProperty("url", herokuUrl);
+		// return new HikariDataSource(config);
+		// } else {
+		// throw new ApplicationContextException("Heroku database URL is not
+		// configured, you must set $JDBC_DATABASE_URL");
+		// }
 
-	    //MySQL optimizations, see https://github.com/brettwooldridge/HikariCP/wiki/MySQL-Configuration
-	    if ("com.mysql.jdbc.jdbc2.optional.MysqlDataSource".equals(dataSourceProperties.getDriverClassName())) {
-                config.addDataSourceProperty("cachePrepStmts", jHipsterProperties.getDatasource().isCachePrepStmts());
-                config.addDataSourceProperty("prepStmtCacheSize", jHipsterProperties.getDatasource().getPrepStmtCacheSize());
-                config.addDataSourceProperty("prepStmtCacheSqlLimit", jHipsterProperties.getDatasource().getPrepStmtCacheSqlLimit());
-            }
+		HikariConfig config = new HikariConfig();
+		config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
+		config.addDataSourceProperty("url", "jdbc:h2:mem:coursetracker;DB_CLOSE_DELAY=-1");
+		return new HikariDataSource(config);
 
-            config.setDataSourceClassName(dataSourceProperties.getDriverClassName());
-            config.addDataSourceProperty("url", herokuUrl);
-            return new HikariDataSource(config);
-        } else {
-            throw new ApplicationContextException("Heroku database URL is not configured, you must set $JDBC_DATABASE_URL");
-        }
-    }
+	}
 }
