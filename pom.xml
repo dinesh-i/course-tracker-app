@@ -660,6 +660,7 @@
                                 </goals>
                                 <configuration>
                                     <buildTool>gulp</buildTool>
+                                    <npmInstallArgs>install --no-optional</npmInstallArgs>
                                 </configuration>
                             </execution>
                         </executions>
