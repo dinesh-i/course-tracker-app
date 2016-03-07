@@ -1,0 +1,40 @@
+
+<div>
+    <h2><span>CourseCategory</span> {{courseCategory.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>CourseCategoryName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{courseCategory.courseCategoryName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>course</span>
+                </td>
+                <td>
+                    <span ng-repeat="course in courseCategory.courses">
+                        <a class="form-control-static" ui-sref="course.detail({id: {{course.id}}})">{{course.id}}</a>{{$last ? '' : ', '}}
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

@@ -1,0 +1,25 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "course",
+      "otherEntityName": "course",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "courseProvider"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "courseProviderName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160307121531",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

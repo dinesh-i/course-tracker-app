@@ -1,26 +1,32 @@
-
-
-entity Title{
-  titleName String required,
-  isCompleted Boolean
+entity CourseProvider{
+  courseProviderName String required
 }
 
-entity Book{
-   bookName String required,
-   author String,
-   isCompleted Boolean
+relationship OneToMany{
+ CourseProvider{course} to Course{courseProvider}
 }
 
-entity Video{
-   videoName String required,
-   author String,
-   isCompleted Boolean
+relationship ManyToMany{
+ CourseCategory{course} to Course{courseCategory}
 }
 
-relationship ManyToMany {
-  Title{book} to Book{title}
+entity Course{
+  courseName String required,
+  author String required,
+  
 }
 
-relationship ManyToMany {
-  Title{video} to Video{title}
+entity UserCourseTracker{
+
 }
+
+enum ExpertLevel { 
+ BEGINNER, INTERMEDIATE, ADVANCED
+ }
+
+
+entity CourseCategory{
+  courseCategoryName String required
+}
+
+

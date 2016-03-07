@@ -1,0 +1,41 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "courseProvider",
+      "otherEntityName": "courseProvider",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "courseCategory",
+      "otherEntityName": "courseCategory",
+      "relationshipType": "many-to-many",
+      "ownerSide": false,
+      "otherEntityRelationshipName": "course"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "courseName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "author",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "changelogDate": "20160307121532",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

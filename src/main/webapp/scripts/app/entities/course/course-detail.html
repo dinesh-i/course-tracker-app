@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span>Course</span> {{course.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>CourseName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{course.courseName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Author</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{course.author}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>courseProvider</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="courseProvider.detail({id:course.courseProvider.id})">{{course.courseProvider.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>
