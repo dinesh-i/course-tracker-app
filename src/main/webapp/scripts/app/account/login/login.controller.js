@@ -18,7 +18,7 @@ angular.module('coursetrackerApp')
                 if ($rootScope.previousStateName === 'register') {
                     $state.go('home');
                 } else {
-                    $rootScope.back();
+                	$state.go('pipeline');
                 }
             }).catch(function () {
                 $scope.authenticationError = true;

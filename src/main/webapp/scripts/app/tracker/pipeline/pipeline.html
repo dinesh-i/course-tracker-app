@@ -1,0 +1,52 @@
+<div ng-cloak>
+	<div class="row">
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tabbable" id="tabs-291250">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#panel-allCourses"
+								data-toggle="tab">All Courses</a></li>
+							<li><a href="#panel-743753" data-toggle="tab">Section 2</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="panel-allCourses">
+								<div ng-repeat="course in courses track by course.id">
+									<div class="row">
+										<div class="col-md-12">
+											<h3 class="text-left">{{course.courseName}}</h3>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-2">
+											<h4 class="text-left">by {{course.author}}</h4>
+										</div>
+										<div class="col-md-2">
+											<h4 class="text-left">{{course.courseProvider.courseProviderName}}</h4>
+										</div>
+										<div class="col-md-2">
+											<div class="star-ratings-sprite">
+												<span style="width:85%" class="rating"></span>
+											</div>											
+										</div>
+										<div class="col-md-2">
+											<h4 class="text-left">Label 2</h4>
+										</div>
+										<div class="col-md-4"></div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="panel-743753">
+								<p>Howdy, I'm in Section 2.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
